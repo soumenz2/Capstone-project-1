@@ -1,6 +1,6 @@
 import React, { useState, ChangeEvent, FormEvent } from "react";
 import image from "../assets/backgroundimage.jpg";
-
+import { useNavigate } from "react-router-dom";
 interface FormData {
   name: string;
   email: string;
@@ -24,7 +24,7 @@ const HomePage: React.FC = () => {
     mobile:'',
     agreeTerms: ''
   });
-
+  const navigate = useNavigate();
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { name, value, type, checked } = e.target;
     const val = type === "checkbox" ? checked : value;
@@ -61,6 +61,7 @@ const HomePage: React.FC = () => {
         username: '',
         mobile:'',
         agreeTerms: '' });
+        navigate("/selection");
     }
   };
 
