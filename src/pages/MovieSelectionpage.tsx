@@ -1,7 +1,6 @@
 import { useState } from "react";
 import CategoryBox from "../component/CategoryBox";
 import CategoryTagBox from "../component/CategoryTagBox";
-import url from "../assets/images/image 11.png"
 import urlAction from "../assets/images/image 2.png";
 import urlDrama from "../assets/images/image 3.png";
 import urlRomance from "../assets/images/image 4.png";
@@ -169,7 +168,7 @@ const MovieSelectionpage = () => {
           <button className="text-white bg-[#148A08] w-32 h-8 rounded-2xl hover:bg-lime-300" onClick={goTonextPage}>
             Next Page
           </button>
-        </div>
+         </div>
       </div>
     </div>
   );
