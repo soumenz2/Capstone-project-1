@@ -35,13 +35,13 @@ const Category: Category[] = [
     id: 0,
     name: "Horror",
     url:urlHorror,
-    color:"#7358FF"
+    color:'#7358FF'
   },
   {
     id: 1,
     name: "Romance",
     url:urlRomance,
-    color:"#148A08"
+    color:'#148A08'
   },
   {
     id: 2,
@@ -123,7 +123,7 @@ const MovieSelectionpage = () => {
 
   return (
     <div className="flex w-full bg-black h-screen">
-      <div className=" justify-center text-left py-16 w-5/12 ">
+      <div className=" justify-center text-left py-16 w-5/12">
         <h2 className="text-4xl font-bold mb-6 font-Monospace text-green-600 mx-16">
           Super app
         </h2>
@@ -154,7 +154,7 @@ const MovieSelectionpage = () => {
         <div className="grid grid-flow-col md:grid-cols-3 mt-9 gap-4 grid-rows-3 m-8">
           {Category.map((category:Category) => {
             return (
-              <div key={category?.id} >
+              <div key={category?.id}  >
                 <CategoryBox
                   category={category}
                   itemSelected={selectedItems}
@@ -165,7 +165,7 @@ const MovieSelectionpage = () => {
           })}
         </div>
         <div className="mx-16 float-right">
-          <button className="text-white bg-[#148A08] w-32 h-8 rounded-2xl hover:bg-lime-300" onClick={goTonextPage}>
+          <button className={`text-white bg-[#148A08]  w-32 h-8 rounded-2xl`} onClick={goTonextPage}>
             Next Page
           </button>
          </div>
