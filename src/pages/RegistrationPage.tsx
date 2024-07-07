@@ -1,19 +1,25 @@
 import React, { useState, ChangeEvent, FormEvent } from "react";
 import image from "../assets/backgroundimage.jpg";
 import { useNavigate } from "react-router-dom";
+import {  useDispatch } from 'react-redux';
+import { setUser} from '../redux/userSlice';
 interface FormData {
   name: string;
   email: string;
   username: string;
+  password:string;
   mobile:string;
   agreeTerms: boolean;
 }
 
 const RegistrationPage: React.FC = () => {
+  const dispatch = useDispatch();
+
   const [formData, setFormData] = useState<FormData>({
     name: "",
     email: "",
     username: "",
+    password:"",
     mobile:"",
     agreeTerms: false,
   });
@@ -21,6 +27,7 @@ const RegistrationPage: React.FC = () => {
     name: '',
     email: '',
     username: '',
+    password:'',
     mobile:'',
     agreeTerms: ''
   });
@@ -59,9 +66,10 @@ const RegistrationPage: React.FC = () => {
       setFormErrors({  name: '',
         email: '',
         username: '',
+        password:'',
         mobile:'',
         agreeTerms: '' });
-        localStorage.setItem('user', JSON.stringify(formData));
+        dispatch(setUser(formData));
         navigate("/selection");
     }
   };
@@ -118,6 +126,19 @@ const RegistrationPage: React.FC = () => {
               className="w-full px-3 py-2 border border-slate-500  bg-slate-600 text-white text-bold rounded-md"
             />
             {formErrors.username && <span className="text-red-500 text-sm">{formErrors.username}</span>}
+          </div>
+          <div className="mb-4">
+            <input
+              type="password"
+              id="password"
+              name="password"
+              placeholder="Password"
+              value={formData.password}
+              onChange={handleChange}
+              required
+              className="w-full px-3 py-2 border border-slate-500  bg-slate-600 text-white text-bold rounded-md"
+            />
+            {formErrors.username && <span className="text-red-500 text-sm">{formErrors.password}</span>}
           </div>
           <div className="mb-4">
             <input

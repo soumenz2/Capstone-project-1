@@ -35,7 +35,7 @@ const  CategoryBox:React.FC<CategoryBoxProps> = ({category,itemSelected,setItemS
     
   }
   return (
-    <div className={` text-white h-36 w-52 p-2 mx-2  rounded-lg border-4 ${borderColor} ${bgcoler}`} style={{backgroundColor: category.color}} onClick={itemclicked}>
+    <div className={` text-white h-28 w-28 md:h-36 md:w-52 p-2 mx-2  rounded-lg border-4 ${borderColor} ${bgcoler}`} style={{backgroundColor: category.color}} onClick={itemclicked}>
       <div  className=''>{category.name}</div>
       <div>
 <img className="" src={category.url} alt="image description" />

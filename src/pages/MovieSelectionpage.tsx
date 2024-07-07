@@ -11,6 +11,9 @@ import urlFantasy from "../assets/images/image 9.png";
 import urlMusic from "../assets/images/image 10.png";
 import urlFiction from "../assets/images/image 11.png"
 import { useNavigate } from "react-router-dom";
+import {  useDispatch } from 'react-redux';
+
+import {  setCategory} from '../redux/userSlice';
 // interface FormData {
 //   name: string;
 //   email: string;
@@ -32,43 +35,43 @@ interface selectedItem {
 
 const Category: Category[] = [
   {
-    id: 0,
+    id: 27,
     name: "Horror",
     url:urlHorror,
     color:'#7358FF'
   },
   {
-    id: 1,
+    id: 10749,
     name: "Romance",
     url:urlRomance,
     color:'#148A08'
   },
   {
-    id: 2,
+    id: 28,
     name: "Action",
     url:urlAction,
     color:"#FF5209"
   },
   {
-    id: 3,
+    id: 53,
     name: "Triller",
     url:urlThrillar,
     color:"#84C2FF"
   },
   {
-    id: 4,
+    id: 18,
     name: "Drama",
     url:urlDrama,
     color:"#D7A4FF"
   },
   {
-    id: 5,
-    name: "Fiction",
+    id: 10751,
+    name: "Family",
     url:urlFiction,
     color:"#6CD061"
   },
   {
-     id: 6,
+     id: 37,
       name: "Western" ,
      url:urlWestern,
      color:"#902500"
@@ -76,14 +79,14 @@ const Category: Category[] = [
      
   
   {
-    id: 7,
+    id: 10402,
     name: "Music",
     url:urlMusic,
     color:"#E61E32"
   },
   {
-    id: 8,
-    name: "fantasy",
+    id: 36,
+    name: "Fantasy",
     url:urlFantasy,
     color:"#FF4ADE"
   },
@@ -105,6 +108,8 @@ const MovieSelectionpage = () => {
   // } else {
   //   console.log('No user data found in localStorage.');
   // }
+  const dispatch = useDispatch();
+
   const navigate = useNavigate();
   const [selectedItems, setSelectedItems] = useState<selectedItem[]>([]);
   console.log(selectedItems);
@@ -115,19 +120,20 @@ const MovieSelectionpage = () => {
   const goTonextPage=()=>{
     if(selectedItems.length>=3){
        navigate('/home')
-       localStorage.setItem('SelectedCategory', JSON.stringify(selectedItems));
+       
+       dispatch(setCategory(selectedItems));
     }
     else return
 
   }
 
   return (
-    <div className="flex w-full bg-black h-screen">
-      <div className=" justify-center text-left py-16 w-5/12">
+    <div className="md:flex w-full bg-black md:h-screen h-fit">
+      <div className=" justify-center text-left py-16 md:w-5/12">
         <h2 className="text-4xl font-bold mb-6 font-Monospace text-green-600 mx-16">
           Super app
         </h2>
-        <h1 className="text-6xl font-bold text-white  text-left w-68 mx-16 my-16">
+        <h1 className="text-6xl font-bold text-white  text-left w-68 mx-4 md:mx-16 my-16 p-4">
           Choose your entertainment category
         </h1>
         <div className="flex mx-16 flex-wrap ">
@@ -150,8 +156,8 @@ const MovieSelectionpage = () => {
         </div>
        
       </div>
-      <div className="w-7/12">
-        <div className="grid grid-flow-col md:grid-cols-3 mt-9 gap-4 grid-rows-3 m-8">
+      <div className="md:w-7/12">
+        <div className="grid  grid-cols-3 md:grid-cols-3 mt-9 gap-2  m-8">
           {Category.map((category:Category) => {
             return (
               <div key={category?.id}  >
@@ -164,7 +170,7 @@ const MovieSelectionpage = () => {
             );
           })}
         </div>
-        <div className="mx-16 float-right">
+        <div className="mx-64 md:mx-96 ">
           <button className={`text-white bg-[#148A08]  w-32 h-8 rounded-2xl`} onClick={goTonextPage}>
             Next Page
           </button>
