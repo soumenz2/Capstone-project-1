@@ -1,6 +1,5 @@
-"use client"
-import React,{useEffect, useState} from "react";
-import CategoryTagBox from "../component/CategoryTagBox";
+
+
 import ProfileCard from "../component/ProfileCard";
 import ArticleSection from "../component/ArticleSection";
 import CountdownTimer from "../component/Countdowntimer";
