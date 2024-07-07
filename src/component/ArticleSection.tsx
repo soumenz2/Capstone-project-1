@@ -9,7 +9,14 @@ interface NewsArticle {
 }
 
 const NewsSection: React.FC = () => {
-  const [articles, setArticles] = useState<NewsArticle>([]);
+  const [articles, setArticles] = useState<NewsArticle>(
+    {
+      title: "",
+      description: "",
+      url: "",
+      urlToImage: ""
+    }
+  );
 
   useEffect(() => {
     const fetchNews = async () => {
